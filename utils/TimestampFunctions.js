@@ -26,6 +26,11 @@ module.exports = () => {
                     utc: new Date(dateInput).toUTCString()
                 };
             }
+        } else if (!dateInput) {
+            time = {
+                unix: new Date().getTime(),
+                utc: new Date().toUTCString()
+            };
         }
         return time;
     }
