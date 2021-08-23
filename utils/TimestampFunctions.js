@@ -17,12 +17,12 @@ module.exports = () => {
             if (date.toString() === "Invalid Date") {
                 const strToNumber = Number(dateInput);
                 time = {
-                    unix: new Date(strToNumber).getTime().toString(),
+                    unix: new Date(strToNumber).getTime(),
                     utc: new Date(strToNumber).toUTCString()
                 };
             } else {
                 time = {
-                    unix: new Date(dateInput).getTime().toString(),
+                    unix: new Date(dateInput).getTime(),
                     utc: new Date(dateInput).toUTCString()
                 };
             }
