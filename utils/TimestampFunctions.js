@@ -12,18 +12,18 @@ module.exports = () => {
 
     const timeStamp = (dateInput) => {
         const date = new Date(dateInput);
-        let time = { unix: "", uct: "" };
+        let time = { unix: "", utc: "" };
         if (dateInput) {
             if (date.toString() === "Invalid Date") {
                 const strToNumber = Number(dateInput);
                 time = {
                     unix: new Date(strToNumber).getTime().toString(),
-                    uct: new Date(strToNumber).toUTCString()
+                    utc: new Date(strToNumber).toUTCString()
                 };
             } else {
                 time = {
                     unix: new Date(dateInput).getTime().toString(),
-                    uct: new Date(dateInput).toUTCString()
+                    utc: new Date(dateInput).toUTCString()
                 };
             }
         }
