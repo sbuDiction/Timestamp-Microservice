@@ -28,26 +28,9 @@ app.get("/api/hello", function (req, res) {
 app.get("/api/:date", (req, res) => {
   const { date } = req.params;
   const timeStampInstance = TimestampFunctions();
-  
-  if (Number(date)) {
-    let uctTime = timeStampInstance.toUct(Number(date));
-    let unixTime = timeStampInstance.toMilliSeconds(Number(date));
-    res.json(
-      {
-        unix: unixTime,
-        utc: uctTime
-      }
-    );
-  } else {
-    let uctTime = timeStampInstance.toUct(date);
-    let unixTime = timeStampInstance.toMilliSeconds(date);
-    res.json(
-      {
-        unix: unixTime,
-        utc: uctTime
-      }
-    );
-  }
+  let time = timeStampInstance.timeStamp(date);
+  console.log(time);
+  res.json(time)
 });
 
 
