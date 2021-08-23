@@ -29,8 +29,12 @@ app.get("/api/:date", (req, res) => {
   const { date } = req.params;
   const timeStampInstance = TimestampFunctions();
   let time = timeStampInstance.timeStamp(date);
-  console.log(time);
-  res.json(time)
+  if (time.utc.toString() === "Invalid Date") {
+    res.json({ error: time.utc.toString() });
+  } else {
+    res.json(time);
+  }
+
 });
 
 
